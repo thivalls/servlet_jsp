@@ -4,14 +4,16 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Servlet with JSP and JDBC</title>
+<title>Login | Servlet</title>
 </head>
 <body>
-	<h1>Hello world!!!</h1>
-	<form action="show-name.jsp">
-		<input name="name" placeholder="digite seu nome" /> <br>
-		<input name="age" placeholder="digite sua idade" /> <br>
-		<input type="submit" value="if=r" />
+	<h1>Bem vindo!!!</h1>
+	<form action="ServletLogin" method="post">
+		<input name="name" placeholder="digite seu usuário" /> <br>
+		<input type="password" name="password" placeholder="digite sua senha" /> <br>
+		<input type="submit" value="Logar" />
 	</form>
+	
+	<p style="color: red">${msg}</p>
 </body>
 </html>
