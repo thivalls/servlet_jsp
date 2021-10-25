@@ -38,4 +38,9 @@ public class Login {
 		}
 		return false;
 	}
+
+	@Override
+	public String toString() {
+		return "Login [user=" + user + ", password=" + password + ", USER=" + USER + ", PASS=" + PASS + "]";
+	}
 }
