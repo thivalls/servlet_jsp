@@ -37,8 +37,6 @@ public class FilterAuth implements Filter {
 
 		String loggedUser = (String) session.getAttribute("logged");
 		String urlBefore = req.getServletPath();
-		
-		System.out.println(urlBefore);
 
 		if (loggedUser == null && !urlBefore.equalsIgnoreCase("/admin/ServletLogin")) {
 			RequestDispatcher redirect = request.getRequestDispatcher("/index.jsp?url=" + urlBefore);

@@ -1,6 +1,7 @@
 package servlets;
 
 import java.io.IOException;
+import java.sql.Connection;
 
 import jakarta.servlet.RequestDispatcher;
 import jakarta.servlet.ServletException;
@@ -9,6 +10,7 @@ import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import models.Login;
+import connections.DbConnection;
 
 @WebServlet(urlPatterns = { "/admin/ServletLogin", "/ServletLogin" }) /* mapeamento da url */
 public class ServletLoginController extends HttpServlet {
@@ -17,6 +19,11 @@ public class ServletLoginController extends HttpServlet {
 	public ServletLoginController() {
 		super();
 		// TODO Auto-generated constructor stub
+		try {
+			Connection db = DbConnection.getConnection();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 	}
 
 //	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -47,10 +54,10 @@ public class ServletLoginController extends HttpServlet {
 				redirect.forward(request, response);
 				return;
 			}
-			
+
 			this.redirectBack(request, response);
 		}
-		
+
 		this.redirectBack(request, response);
 	}
 
