@@ -8,8 +8,8 @@
 </head>
 <body>
 	<h1>Bem vindo!!!</h1>
-	<form action="/jsp/ServletLogin" method="post">
-		<input type="" name="url" value="<%=request.getParameter("url")%>" /> 
+	<form action="ServletLogin" method="post">
+		<input type="hidden" name="url" value="<%=request.getParameter("url")%>" /> 
 		<input name="name" placeholder="digite seu usuário" /> <br> 
 		<input type="password" name="password" placeholder="digite sua senha" /> <br> 
 		<input type="submit" value="Logar" />

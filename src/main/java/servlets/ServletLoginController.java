@@ -10,7 +10,7 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import models.Login;
 
-@WebServlet("/ServletLogin") /* mapeamento da url */
+@WebServlet(urlPatterns = { "/admin/ServletLogin", "/ServletLogin" }) /* mapeamento da url */
 public class ServletLoginController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
@@ -45,22 +45,18 @@ public class ServletLoginController extends HttpServlet {
 				RequestDispatcher redirect = request.getRequestDispatcher(url);
 				request.setAttribute("user", "Fulano");
 				redirect.forward(request, response);
-			} else {
-				RequestDispatcher redirect = request.getRequestDispatcher("index.jsp");
-				request.setAttribute("msg", "Usuário ou senha inválidos ou em branco!");
-				redirect.forward(request, response);
+				return;
 			}
-
-		} else {
-			RequestDispatcher redirect = request.getRequestDispatcher("index.jsp");
-			request.setAttribute("msg", "Usuário ou senha inválidos ou em branco!");
-			redirect.forward(request, response);
+			
+			this.redirectBack(request, response);
 		}
+		
+		this.redirectBack(request, response);
 	}
 
 	private void redirectBack(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		RequestDispatcher redirect = request.getRequestDispatcher("index.jsp");
+		RequestDispatcher redirect = request.getRequestDispatcher("/index.jsp");
 		request.setAttribute("msg", "Usuário ou senha inválidos ou em branco!");
 		redirect.forward(request, response);
 		return;

@@ -37,9 +37,10 @@ public class FilterAuth implements Filter {
 
 		String loggedUser = (String) session.getAttribute("logged");
 		String urlBefore = req.getServletPath();
+		
+		System.out.println(urlBefore);
 
-		if (loggedUser == null
-				|| (loggedUser != null && loggedUser.isEmpty()) && !urlBefore.contains("/admin/ServletLogin")) {
+		if (loggedUser == null && !urlBefore.equalsIgnoreCase("/admin/ServletLogin")) {
 			RequestDispatcher redirect = request.getRequestDispatcher("/index.jsp?url=" + urlBefore);
 			request.setAttribute("msg", "Para acessar o dashboard você deve estar logado!");
 			redirect.forward(request, response);
