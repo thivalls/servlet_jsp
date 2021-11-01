@@ -4,9 +4,6 @@ public class Login {
 	private String user;
 	private String password;
 	
-	private final String USER = "admin";
-	private final String PASS = "123";
-	
 	public Login() {
 		
 	}
@@ -30,17 +27,5 @@ public class Login {
 
 	public void setPassword(String password) {
 		this.password = password;
-	}
-	
-	public Boolean login() {
-		if (user.equals(USER) && password.equals(PASS)) {
-			return true;
-		}
-		return false;
-	}
-
-	@Override
-	public String toString() {
-		return "Login [user=" + user + ", password=" + password + ", USER=" + USER + ", PASS=" + PASS + "]";
 	}
 }

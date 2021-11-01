@@ -5,7 +5,7 @@ import java.sql.DriverManager;
 
 public class DbConnection {
 
-    private static String dbhost = "jdbc:postgresql://localhost:5432/servlet?autoReconnect=true";
+    private static String dbhost = "jdbc:postgresql://localhost:5432/servlets?autoReconnect=true";
     private static String dbuser = "postgres";
     private static String dbpass = "valls";
     private static Connection connection = null;

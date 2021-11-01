@@ -66,6 +66,10 @@ public class FilterAuth implements Filter {
 			} catch (SQLException e1) {
 				e1.printStackTrace();
 			}
+			RequestDispatcher redirect = request.getRequestDispatcher("error.jsp");
+			request.setAttribute("message", e.getMessage());
+			redirect.forward(request, response);
+			return;
 		}
 	}
 
